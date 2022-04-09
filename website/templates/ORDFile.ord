@@ -1,0 +1,59 @@
+
+<pre>
+[Link]
+PocketPCPath=""
+PCPath=""
+PCDate=""
+CreateBy="WEB_Interface"
+
+[Header]
+Version=4
+Unit=1v
+Name="{{current_user.first_name}}"
+Description="{{pname}}"
+PurchaseOrder="{{pname}}"
+Comment=" {{gsokel}}:גובה סוקל"
+Customer="{{pname}}"
+Contact="{{contact}}"
+Address1="{{current_user.address}}"
+Address2=""
+City=""
+State=""
+Zip=""
+Phone="{{phone}}"
+Fax=""
+Mobile=""
+EMail="{{current_user.email}}"
+
+BaseDoors="{{door.name}}","{{door.cvname}}","","","","","{{door.ddb}}"
+WallDoors="{{door.name}}","{{door.cvname}}","","","","","{{door.ddb}}"
+DrawerFront="{{door.name}}","{{door.cvname}}","","","","","{{door.ddb}}"
+BaseEndPanels="{{door.name}}","{{door.cvname}}","","","","","{{door.ddb}}"
+WallEndPanels="{{door.name}}","{{door.cvname}}","","","","","{{door.ddb}}"
+TallEndPanels="{{door.name}}","{{door.cvname}}","","","","","{{door.ddb}}"
+CabinetConstruction="{{conm.cvname}}" 
+DrawerBoxConstruction="{{cabmats.cvname}}"
+RollOutConstruction="{{rolls.cvname}}"
+BaseCabinetMaterials="{{cabmats.cvname}}"
+WallCabinetMaterials="{{cabmats.cvname}}"
+BaseExposedCabinetMaterials="{{cabmats.cvname}}"
+WallExposedCabinetMaterials="{{cabmats.cvname}}"
+DrawerBoxMaterials="{{cabmats.cvname}}"
+RollOutMaterials="{{cabmats.cvname}}"
+PullMaterials="{{pulls.cvname}}"
+HingeMaterials="Blum ClipTop 110° H5 "
+GuideMaterials="Vision White"
+InteriorFinish="שחור"
+ExteriorFinish="לבן"
+
+
+[Walls]
+-1250.0,-0.0,0.0,1900.0,2750.0,100.0,1,2,"0",,,,"216","S"
+
+[Catalog]
+Name="Custom Cabinets.cvc"
+
+[Parameters]
+Attribute="1 Provance Frame ON/OFF","Frame_ON_OFF","bool",0
+Attribute="Draws Detailed?","U_Cab_Detailed_Drawers","bool",1
+</pre>
