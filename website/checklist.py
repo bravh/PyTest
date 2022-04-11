@@ -44,13 +44,13 @@ def CheckList():
     return render_template('CheckList.html', user=current_user, conm= conm ,sokel = sokel, doors = doors, cabmats = cabmats, rolls = rolls, pulls= pulls)
 
 
-@checklist.route('/saveord/<content>' ,methods=['GET', 'POST'])  
+@checklist.route('/saveord/' ,methods=['GET', 'POST'])  
 @login_required
-def saveord(content):
+def saveord():
  
-    if request.method == 'POST':
+   # if request.method == 'POST':
         
         
-        print(content)
+      #  print(content)
     return redirect(url_for('checklist.CheckList'))
 

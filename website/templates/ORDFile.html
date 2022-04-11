@@ -17,7 +17,7 @@ Unit=1v
 Name="{{current_user.first_name}}"
 Description="{{pname}}"
 PurchaseOrder="{{pname}}"
-Comment=" {{gsokel}}:גובה סוק��"
+Comment=" {{gsokel}}:גובה סוקל"
 Customer="{{pname}}"
 Contact="{{contact}}"
 Address1="{{current_user.address}}"
@@ -49,7 +49,7 @@ PullMaterials="{{pulls.cvname}}"
 HingeMaterials="Blum ClipTop 110° H5"
 GuideMaterials="Vision White"
 InteriorFinish="שחור"
-ExteriorFinish="��ב��"
+ExteriorFinish="לבן"
 
 [Walls]
 -1250.0,-0.0,0.0,1900.0,2750.0,100.0,1,2,"0",,,,"216","S"
@@ -64,28 +64,33 @@ Attribute="Draws Detailed?","U_Cab_Detailed_Drawers","bool",1
 </p>
        
 
-<button class="btn btn-primary">SaveORD</button>
+
+ <button class="btn btn-primary" id="create">SaveORD file</button> 
+<a download="info.txt" id="downloadlink" style="display: none">Download</a>
 
 <script>
-let textFile = null;
+(function () {
+    var textFile = null,
+    makeTextFile = function (text) {
+        var data = new Blob([text], {type: "text/plain; charset=ANSI"});
 
-function makeTextFile () {
-    let text = document.getElementById('contentv').innerHTML;
-
-    const data = new Blob([text], {
-        type: "text/plain",
-        endings: "native"
-    });
-
-    if (textFile !== null) {
-        window.URL.revokeObjectURL(textFile);
-    }
-
+        if (textFile !== null) {
+            window.URL.revokeObjectURL(textFile);
+            }
     textFile = window.URL.createObjectURL(data);
-
     return textFile;
-}
+    };
 
+
+var create = document.getElementById('create'),
+    textbox = document.getElementById('contentv').innerHTML;
+
+    create.addEventListener('click', function () {
+        var link = document.getElementById('downloadlink');
+        link.href = makeTextFile(textbox);
+        link.click();
+        }, false);
+})();
 </script>
 
 
