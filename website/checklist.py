@@ -1,6 +1,10 @@
+import encodings
 from flask import Blueprint, render_template, request, redirect, url_for
 from .models import ConMeths, Sokels, Doors, CabMats, Pulls, RoolOuts
 from flask_login import  login_required, current_user
+from flask import send_file
+from bs4 import BeautifulSoup
+
 
 
 checklist = Blueprint('checklist', __name__)
@@ -44,13 +48,15 @@ def CheckList():
     return render_template('CheckList.html', user=current_user, conm= conm ,sokel = sokel, doors = doors, cabmats = cabmats, rolls = rolls, pulls= pulls)
 
 
-@checklist.route('/saveord/' ,methods=['GET', 'POST'])  
+@checklist.route('/saveord' ,methods=['GET', 'POST'])  
 @login_required
 def saveord():
- 
-   # if request.method == 'POST':
-        
-        
-      #  print(content)
-    return redirect(url_for('checklist.CheckList'))
+    content = request.form.get('contentv')
+    print(content)
+    if request.method == 'POST':
+        with open("website//order.ord", "w", encoding="utf-16") as fo:
+           fo.write(content)
+           fo.close()
+           return send_file("order.ord", as_attachment=True)
+    return render_template('home.html', user=current_user)
 

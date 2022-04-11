@@ -1,9 +1,9 @@
-{% extends "base.html" %} 
-{% block content %} .<script>window.TextEncoder = null;// force installation of the polyfill</script>
-<script src="https://cdn.jsdelivr.net/gh/inexorabletash/text-encoding/lib/encoding-indexes.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/inexorabletash/text-encoding/lib/encoding.js"></script>
-<form >
-<p id="contentv" style="display:none">
+﻿{% extends "base.html" %} 
+{% block content %} 
+
+<form for="contentv" method="POST" action="/saveord" >
+
+<textarea style="width: 800px; height: 900px" id="contentv" name="contentv" >
 [Link]
 PocketPCPath=""
 PCPath=""
@@ -60,38 +60,17 @@ Name="Custom Cabinets.cvc"
 [Parameters]
 Attribute="1 Provance Frame ON/OFF","Frame_ON_OFF","bool",0
 Attribute="Draws Detailed?","U_Cab_Detailed_Drawers","bool",1
-  
-</p>
-       
+</textarea>
 
 
- <button class="btn btn-primary" id="create">SaveORD file</button> 
-<a download="info.txt" id="downloadlink" style="display: none">Download</a>
-
-<script>
-(function () {
-    var textFile = null,
-    makeTextFile = function (text) {
-        var data = new Blob([text], {type: "text/plain; charset=ANSI"});
-
-        if (textFile !== null) {
-            window.URL.revokeObjectURL(textFile);
-            }
-    textFile = window.URL.createObjectURL(data);
-    return textFile;
-    };
+ <button type="POST" class="btn btn-primary" >SaveORD file</button> 
 
 
-var create = document.getElementById('create'),
-    textbox = document.getElementById('contentv').innerHTML;
+</form>
+ 
 
-    create.addEventListener('click', function () {
-        var link = document.getElementById('downloadlink');
-        link.href = makeTextFile(textbox);
-        link.click();
-        }, false);
-})();
-</script>
+
 
 
 {% endblock %}
+
