@@ -13,7 +13,7 @@ CreateBy="PC_SOLID"
 
 [Header]
 Version=4
-Unit=1v
+Unit=1
 Name="{{current_user.first_name}}"
 Description="{{pname}}"
 PurchaseOrder="{{pname}}"
@@ -29,7 +29,18 @@ Phone="{{phone}}"
 Fax=""
 Mobile=""
 EMail="{{current_user.email}}"
-
+ShipToComment=""
+ShipToCustomer=""
+ShipToContact=""
+ShipToAddress1=""
+ShipToAddress2=""
+ShipToCity=""
+ShipToState=""
+ShipToZip=""
+ShipToPhone=""
+ShipToFax=""
+ShipToMobile=""
+ShipToEMail=""
 BaseDoors="{{door.name}}","{{door.cvname}}","","","","","{{door.ddb}}"
 WallDoors="{{door.name}}","{{door.cvname}}","","","","","{{door.ddb}}"
 DrawerFront="{{door.name}}","{{door.cvname}}","","","","","{{door.ddb}}"
@@ -60,6 +71,9 @@ Name="Custom Cabinets.cvc"
 [Parameters]
 Attribute="1 Provance Frame ON/OFF","Frame_ON_OFF","bool",0
 Attribute="Draws Detailed?","U_Cab_Detailed_Drawers","bool",1
+
+[Cabinets]
+1,"Std Base",600.0,880.0,600.0,"*","N",1,"","216-F",440.0,0.0,0.0,2,0,"1V-O|T","215","S"
 </textarea>
 
 
