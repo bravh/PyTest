@@ -66,7 +66,27 @@ Attribute="Draws Detailed?","U_Cab_Detailed_Drawers","bool",1
 
 <button class="btn btn-primary">SaveORD</button>
 
+<script>
+let textFile = null;
 
+function makeTextFile () {
+    let text = document.getElementById('contentv').innerHTML;
+
+    const data = new Blob([text], {
+        type: "text/plain",
+        endings: "native"
+    });
+
+    if (textFile !== null) {
+        window.URL.revokeObjectURL(textFile);
+    }
+
+    textFile = window.URL.createObjectURL(data);
+
+    return textFile;
+}
+
+</script>
 
 
 {% endblock %}
