@@ -1,10 +1,15 @@
-
-<pre>
+{% extends "base.html" %} 
+{% block content %} .<script>window.TextEncoder = null;// force installation of the polyfill</script>
+<script src="https://cdn.jsdelivr.net/gh/inexorabletash/text-encoding/lib/encoding-indexes.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/inexorabletash/text-encoding/lib/encoding.js"></script>
+<form >
+<p id="contentv" style="display:none">
 [Link]
 PocketPCPath=""
 PCPath=""
 PCDate=""
-CreateBy="WEB_Interface"
+CreateBy="PC_SOLID"
+    
 
 [Header]
 Version=4
@@ -12,7 +17,7 @@ Unit=1v
 Name="{{current_user.first_name}}"
 Description="{{pname}}"
 PurchaseOrder="{{pname}}"
-Comment=" {{gsokel}}:גובה סוקל"
+Comment=" {{gsokel}}:גובה סוק��"
 Customer="{{pname}}"
 Contact="{{contact}}"
 Address1="{{current_user.address}}"
@@ -32,20 +37,19 @@ BaseEndPanels="{{door.name}}","{{door.cvname}}","","","","","{{door.ddb}}"
 WallEndPanels="{{door.name}}","{{door.cvname}}","","","","","{{door.ddb}}"
 TallEndPanels="{{door.name}}","{{door.cvname}}","","","","","{{door.ddb}}"
 CabinetConstruction="{{conm.cvname}}" 
-DrawerBoxConstruction="{{cabmats.cvname}}"
-RollOutConstruction="{{rolls.cvname}}"
+DrawerBoxConstruction="Cabineo Drawer Box"
+RollOutConstruction="Cabineo Drawer Box IN"
 BaseCabinetMaterials="{{cabmats.cvname}}"
 WallCabinetMaterials="{{cabmats.cvname}}"
 BaseExposedCabinetMaterials="{{cabmats.cvname}}"
 WallExposedCabinetMaterials="{{cabmats.cvname}}"
-DrawerBoxMaterials="{{cabmats.cvname}}"
-RollOutMaterials="{{cabmats.cvname}}"
+DrawerBoxMaterials="{{rolls.cvname}}"
+RollOutMaterials="{{rolls.cvname}}"
 PullMaterials="{{pulls.cvname}}"
-HingeMaterials="Blum ClipTop 110° H5 "
+HingeMaterials="Blum ClipTop 110° H5"
 GuideMaterials="Vision White"
 InteriorFinish="שחור"
-ExteriorFinish="לבן"
-
+ExteriorFinish="��ב��"
 
 [Walls]
 -1250.0,-0.0,0.0,1900.0,2750.0,100.0,1,2,"0",,,,"216","S"
@@ -56,4 +60,13 @@ Name="Custom Cabinets.cvc"
 [Parameters]
 Attribute="1 Provance Frame ON/OFF","Frame_ON_OFF","bool",0
 Attribute="Draws Detailed?","U_Cab_Detailed_Drawers","bool",1
-</pre>
+  
+</p>
+       
+
+<button class="btn btn-primary">SaveORD</button>
+
+
+
+
+{% endblock %}

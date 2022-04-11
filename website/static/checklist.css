@@ -1,0 +1,32 @@
+#rightside {
+    width: 49%;
+    float: right;
+  
+  }
+
+#leftside {
+   
+    width: 49%;
+    float: left;
+    
+  }
+
+
+  table, th, tr, input {
+    text-align: right;
+  }
+  h1{
+      
+      margin: auto;
+      text-align:right;
+  }
+  #mainTable {
+  align-items: center;
+  float:right;
+    width: 100%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
