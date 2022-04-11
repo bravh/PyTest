@@ -1,6 +1,7 @@
 {% extends "base.html" %} 
 {% block title %}Home{% endblock %} 
 {% block content %}
+<h1>
 <pre>
     {{ user.admin }} -- Admin
     {{ user.email }} -- Mail
@@ -9,5 +10,7 @@
     {{ user.address }} -- Address
     {{ user.phone }} --Phone
 </pre>
+
+</h1>
 
 {% endblock %}
