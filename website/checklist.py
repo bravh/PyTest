@@ -52,7 +52,7 @@ def CheckList():
 @login_required
 def saveord():
     content = request.form.get('contentv')
-    content = content.encode("windows-1255" ,"ignore")
+    content = content.encode("windows-1255" ,"ignore") 
     print(content)
     if request.method == 'POST':
         with open("website//order.ord", "wb") as fo:

@@ -10,9 +10,11 @@
     float: left;
     
   }
+  
 
-
-  table, th, tr, input {
+  table, th , td, p , tr, input , form{
+    margin: auto;
+    float: right;
     text-align: right;
   }
   h1{

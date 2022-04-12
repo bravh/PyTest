@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}CheckList{% endblock %} 
 {% block content %}
-<body>
+<body onload="load()">
   
 <form method="POST">
     <! RIGHTSIDE >
@@ -9,13 +9,13 @@
              <h1  >פרוייקט חדש</h1>
             <table  class="table table-striped">   
                     <tr> 
-                    <th><input disabled="true" value="{{current_user.first_name}}" />:שם המזמין / הנגר </th> 
+                    <td>:שם המזמין / הנגר </td><td> <input disabled="true" value="{{current_user.first_name}}" /></td>
                     </tr>
                     <tr> 
-                    <th><input name="projname" value="פרוייקט חדש"/>:שם הפרוייקט</th>
+                    <td>:שם הפרוייקט</td> <td><input name="projname" value="פרוייקט חדש"/></td>
                     </tr>
                     <tr> 
-                    <th><input name="contactname" value="{{current_user.first_name}}" />:שם איש קשר</th>
+                    <td>:שם איש קשר</td><td><input name="contactname" value="{{current_user.first_name}}" /></td>
                     </tr>
             </table>    
     </div>
@@ -25,92 +25,147 @@
             <h1  > פרטים</h1>
             <table  class="table table-striped" >   
                     <tr> 
-                    <th><input disabled="true" value="{{current_user.email}}"/>:דואר אלקטרוני</th>
+                    <td>:דואר אלקטרוני</td><td><input disabled="true" value="{{current_user.email}}"/></td>
                     </tr>
                     <tr> 
-                    <th><input name="phonen" value="{{current_user.phone}}"/>:מס טלפון</th>
+                    <td>:מס טלפון</td><td><input name="phonen" value="{{current_user.phone}}"/></td>
                     </tr>
                     <tr> 
-                    <th><input disabled="true" value="{{current_user.address}}"/>:כתובת</th>
+                    <td>:כתובת</td><td><input disabled="true" value="{{current_user.address}}"/></td>
                     </tr>
              </table>    
      </div>
      <! MAIN >
 
-        <div id="mainTable">
+
 
             <h1 > צ'ק ליסט</h1>
-            <table  class="table table-striped" >   
-                <tr> 
-            <th>
-                <select name="conmval">
+            <div>
+                 <select name="conmval">
                 {% for c in conm %}
                 <option  value="{{c.cvname}}">{{ c.name }}</option>
                 {% endfor %}
-            </select>
-            :בחר שיטת בניה
-        </th>
-                </tr>
-                <tr> 
-            <th>
-                <div style="width:45%; float:right;">
+                 </select>
+                 :בחר שיטת בניה
+                </div> 
+                <br>
+            <div>
+             <table>
+                 <td>בחר סוקל</td>
+                 <td>
                     <select name="sokelval" style="width:250px; float:center; text-align:right;" >
                     {% for s in sokel %}
                     <option  value="{{s.cvname}}">{{ s.name }}</option>
                     {% endfor %}
                     </select>
-                    :בחר סוג סוקל
-                
-                </div>
-                <div style="width:35%; float:right;">
-                    <span style= "float:right">:גובה סוקל</span>
-                    <input name="sokelgovaval" value="100" id="govasokel" style="width:80px ;float:right;"/>
-                
-
-                </div>
-            </th>
-        
-                </tr>
-                <tr> 
-            <th>
+                </td>
+                 <td>:גובה סוקל</td>
+                 
+                <td>
+                <input name="sokelgovaval" value="100" id="govasokel" style="width:80px ;float:right;">
+                </td>
+            </table>
+            </div>
+            <br>
+            <br>
+            <div>
                 <select name="doorval">
-                {% for d in doors %}
-                <option  value="{{d.cvname}}">{{ d.name }}</option>
-                {% endfor %}
-            </select>
-                :בחר סוג דלתות</th>
-                </tr>
-                <tr> 
-            <th> 
-                <select name="cabmatval">
+                    {% for d in doors %}
+                    <option  value="{{d.cvname}}">{{ d.name }}</option>
+                    {% endfor %}
+                </select>
+                :בחר סוג דלתות
+           </div>
+           <br>
+           <div>
+            <select  id="cabmat" name="cabmatval">
                 {% for cm in cabmats %}
                 <option  value="{{cm.cvname}}">{{ cm.name }}</option>
                 {% endfor %}
             </select>
-                
-                בחר סוג חומר לארגזים</th>
-                </tr>
-                <tr> 
-            <th>
-                <select  name="rollsval">
-                    {% for ro in rolls %}
-                    <option  value="{{ro.cvname}}">{{ ro.name }}</option>
-                    {% endfor %}
-                </select>
-                :בחר סוג מגירות</th>
-                </tr>
-                <tr> 
-                <th>
-                    <select name="pullsval">
-                        {% for pu in pulls %}
-                        <option value="{{pu.cvname}}">{{ pu.name }}</option>
+           :בחר סוג חומר לארגזים
+           </div>
+           <br>
+           <div>
+               <table>
+            <select id="chosen_drawer" name="rollsval"  onchange="select();">
+               <option  value="wooden">מגירת עץ</option>
+               <option  value="metal">מגירת מתכת</option>
+               </select>
+               :בחר סוג מגירות
+            </table>
+            <br>
+            <table>
+                <div id="metal_drawers" float="left">
+                    <br>
+                    <select  >
+                        {% for ro in rolls %}
+                        <option  value="{{ro.cvname}}">{{ ro.name }}</option>
                         {% endfor %}
                     </select>
-                    בחר סוג ידיות</th>
-                </tr>
-            </table>    
+                    :בחר יצרן מגירות
+                </div>
+                
+                <div id="wooden_drawers"  float="left">
+                    <br>
+                    <select >
+                        {% for ro in rolls %}
+                        <option  value="{{ro.cvname}}">{{ ro.name }}</option>
+                        {% endfor %}
+                    </select>
+                    :בחר שיטת בניה מגירות
+                    <br>
+                    <select>
+                        <option  value="1">1</option>
+                        <option  value="2">2</option>
+                        <option  value="3">3</option>
+                     </select>
+                   :בחר חומר למגירות
+                </div>
+     
+            </table>
+            </div>
+            <br>
+            <div>
+                <select id ="pulls" name="pullsval">
+                    {% for pu in pulls %}
+                    <option  value="{{pu.cvname}}">{{ pu.name }}</option>
+                    {% endfor %}
+                </select>
+                בחר סוג ידיות
+            </div>
+
    <input class="btn btn-primary" value="שלח" type="submit"/>
 </form>
+<script>
+    function load(){
+        document.getElementById("wooden_drawers").hidden = true; 
+        document.getElementById("metal_drawers").hidden = true; 
+
+
+    };
+
+function select(){
+    var chosen = document.getElementById("chosen_drawer").value;
+    
+    if(chosen == "wooden"){
+     
+        document.getElementById("wooden_drawers").hidden = false; 
+        document.getElementById("metal_drawers").hidden = true; 
+       };
+
+       if (chosen == "metal"){
+       document.getElementById("wooden_drawers").hidden = true; 
+       document.getElementById("metal_drawers").hidden = false; 
+    };
+};
+
+
+
+
+
+</script>
+
 
 </body>
 

@@ -39,6 +39,8 @@ class ConMeths(db.Model):
      id = db.Column(db.Integer, primary_key=True, nullable=False)
      name = db.Column(db.String(150), unique=True)
      cvname = db.Column(db.String(150), unique=True)
+    
+     
    
 class Sokels(db.Model):
      id = db.Column(db.Integer, primary_key=True, nullable=False)
@@ -49,14 +51,15 @@ class Doors(db.Model):
      id = db.Column(db.Integer, primary_key=True, nullable=False)
      name = db.Column(db.String(150), unique=True)
      cvname = db.Column(db.String(150), unique=True)
-     ddb = db.Column(db.String(150), unique=True)
      
-     
+          
 class CabMats(db.Model):
      id = db.Column(db.Integer, primary_key=True, nullable=False)
      name = db.Column(db.String(150), unique=True)
      cvname = db.Column(db.String(150), unique=True)
-     
+    
+
+
 class Pulls(db.Model):
      id = db.Column(db.Integer, primary_key=True, nullable=False)
      name = db.Column(db.String(150), unique=True)
@@ -67,7 +70,7 @@ class RoolOuts(db.Model):
     id = db.Column(db.Integer, primary_key=True, nullable=False)
     name = db.Column(db.String(150), unique=True)
     cvname = db.Column(db.String(150), unique=True)
-     
+    drawers = db.Column(db.String(150))
    
    
     
