@@ -42,6 +42,7 @@
             <h1 > צ'ק ליסט</h1>
             <div>
                  <select name="conmval">
+                    <option disabled selected value>יש לבחור שיטת בנית ארגז </option>
                 {% for c in conm %}
                 <option  value="{{c.cvname}}">{{ c.name }}</option>
                 {% endfor %}
@@ -49,91 +50,190 @@
                  :בחר שיטת בניה
                 </div> 
                 <br>
+                <div>
+                 <select  id="cabmat" name="cabmatval" >
+                    <option disabled selected value>יש לבחור חומר לארגזים</option>
+                     {% for cm in cabmats %}
+                     <option  value="{{cm.cvname}}">{{ cm.name }}</option>
+                     {% endfor %}
+                 </select>
+                :בחר סוג חומר לארגזים
+                </div>
+                <br>
             <div>
-             <table>
-                 <td>בחר סוקל</td>
-                 <td>
-                    <select name="sokelval" style="width:250px; float:center; text-align:right;" >
-                    {% for s in sokel %}
-                    <option  value="{{s.cvname}}">{{ s.name }}</option>
-                    {% endfor %}
+
+                <div>
+                    <table>
+                 <select id="chosen_drawer" name="rollsval"  onchange="selectdrawer();">
+                    <option disabled selected value>יש לבחור סוג מגירה</option>
+                    <option  value="wooden">מגירת עץ</option>
+                    <option  value="metal">מגירת מתכת</option>
                     </select>
-                </td>
-                 <td>:גובה סוקל</td>
-                 
-                <td>
-                <input name="sokelgovaval" value="100" id="govasokel" style="width:80px ;float:right;">
-                </td>
-            </table>
-            </div>
-            <br>
+                    :בחר סוג מגירות
+                 </table>
+                  <table>
+                     <div id="metal_drawers" float="left">
+                        <br>
+                         <select  >
+                            <option disabled selected value>יש לבחור סוג מגירה</option>                            
+                             {% for rfo in rolls %}
+                             <option  value="{{rfo.cvname}}">{{ rfo.name }}</option>
+                             {% endfor %}
+                         </select>
+                         :בחר יצרן ודגם מגירות
+                     </div>
+                    
+                     <div id="wooden_drawers"  float="left">
+                        <br>
+                         <select >
+                            <option disabled selected value>יש לבחור חומר למגירה</option>  
+                             {% for rao in drawermat %}
+                             <option  value="{{rao.cvname}}">{{ rao.name }}</option>
+                             {% endfor %}
+                         </select>
+                         :בחר שיטת בניה מגירות
+                         <select>
+                            <option disabled selected value>יש לבחור שיטת בניה למגירה</option>
+                            {% for cin in conmdw %}
+                            <option  value="{{cin.cvname}}">{{ cin.name }}</option>
+                            {% endfor %}
+                          </select>
+                        :בחר חומר למגירות
+                     </div>
+          
+                 </table>
+                 </div>
+                         
             <br>
             <div>
-                <select name="doorval">
-                    {% for d in doors %}
-                    <option  value="{{d.cvname}}">{{ d.name }}</option>
-                    {% endfor %}
+                <select id = "doorval" name="doorval" onchange="selectdoor();">
+                    <option disabled selected value>יש לבחור סוג חזיתות</option>
+                     <option  value="forpaint">חזיתות לצבע</option>
+                     <option  value="nopaint">חזיתות ללא צבע</option>
+                    
                 </select>
-                :בחר סוג דלתות
+                :בחר סוג חזיתות
+                <div>
+                    <table>
+                        <div id="forpaint" float="left">
+                           <br>
+                            <select>
+                               <option disabled selected value>יש לבחור סוג חזיתות</option>                            
+                                {% for ro in doorfp %}
+                                <option  value="{{ro.cvname}}">{{ ro.name }}</option>
+                                {% endfor %}
+                            </select>
+                            :בחר חומר לחזיתות
+                            <select>
+                            <option disabled selected value>יש לבחור חומר לחזיתות</option>                            
+                                {% for rco in dpm %}
+                                <option  value="{{rco.cvname}}">{{ rco.name }}</option>
+                                {% endfor %}
+                            </select>
+                            :בחר דגם חזיתות
+                        </div>
+                       
+                        <div id="nopaint"  float="left">
+                           <br>
+                            <select >
+                               <option disabled selected value>יש לבחור דגם לחזיתות</option>  
+                                {% for rso in doornp %}
+                                <option  value="{{rso.cvname}}">{{ rso.name }}</option>
+                                {% endfor %}
+                            </select>
+                            : בחר חומר לחזיתות
+                            <select>
+                               <option disabled selected value>יש לבחור חומר חזיתות</option>
+                               {% for cin in dnpm %}
+                               <option  value="{{cin.cvname}}">{{ cin.name }}</option>
+                               {% endfor %}
+                             </select>
+                           :בחר דגם חזיתות
+                        </div>
+             
+                    </table>
+                    </div>
            </div>
            <br>
+           
            <div>
-            <select  id="cabmat" name="cabmatval">
-                {% for cm in cabmats %}
-                <option  value="{{cm.cvname}}">{{ cm.name }}</option>
-                {% endfor %}
-            </select>
-           :בחר סוג חומר לארגזים
-           </div>
-           <br>
-           <div>
-               <table>
-            <select id="chosen_drawer" name="rollsval"  onchange="select();">
-               <option  value="wooden">מגירת עץ</option>
-               <option  value="metal">מגירת מתכת</option>
-               </select>
-               :בחר סוג מגירות
-            </table>
-            <br>
-            <table>
-                <div id="metal_drawers" float="left">
-                    <br>
-                    <select  >
-                        {% for ro in rolls %}
-                        <option  value="{{ro.cvname}}">{{ ro.name }}</option>
-                        {% endfor %}
-                    </select>
-                    :בחר יצרן מגירות
-                </div>
+            <select id = "dval" name="dval" onchange="selectd();">
+                <option disabled selected value>יש לבחור סוג דפנות</option>
+                 <option  value="dforpaint">דפנות לצבע</option>
+                 <option  value="dnopaint">דפנות ללא צבע</option>
                 
-                <div id="wooden_drawers"  float="left">
-                    <br>
-                    <select >
-                        {% for ro in rolls %}
-                        <option  value="{{ro.cvname}}">{{ ro.name }}</option>
-                        {% endfor %}
-                    </select>
-                    :בחר שיטת בניה מגירות
-                    <br>
-                    <select>
-                        <option  value="1">1</option>
-                        <option  value="2">2</option>
-                        <option  value="3">3</option>
-                     </select>
-                   :בחר חומר למגירות
+            </select>
+            :בחר סוג דפנות
+            <div>
+                <table>
+                    <div id="dforpaint" float="left">
+                       <br>
+                        <select  >
+                           <option disabled selected value>יש לבחור דגם לדפנות</option>                            
+                            {% for ro in doorfp %}
+                            <option  value="{{ro.cvname}}">{{ ro.name }}</option>
+                            {% endfor %}
+                        </select>
+                        :בחר חומר דפנות
+                        <select>
+                            <option disabled selected value>יש לבחור חומר דפנות</option>                            
+                             {% for xro in dpm %}
+                             <option  value="{{xro.cvname}}">{{ xro.name }}</option>
+                             {% endfor %}
+                         </select>
+                         :בחר דגם דפנות
+                    </div>
+                   
+                    <div id="dnopaint"  float="left">
+                       <br>
+                        <select >
+                           <option disabled selected value>יש לבחור דגם לדפנות</option>  
+                            {% for rxo in doornp %}
+                            <option  value="{{rxo.cvname}}">{{ rxo.name }}</option>
+                            {% endfor %}
+                        </select>
+                        : בחר חומר לדפנות
+                        <select>
+                           <option disabled selected value>יש לבחור חומר לדפנות</option>
+                           {% for cin in dnpm %}
+                           <option  value="{{cin.cvname}}">{{ cin.name }}</option>
+                           {% endfor %}
+                         </select>
+                       :בחר דגם דפנות
+                    </div>
+         
+                </table>
                 </div>
-     
-            </table>
-            </div>
-            <br>
+       </div>
+       <br>
+           
             <div>
                 <select id ="pulls" name="pullsval">
                     {% for pu in pulls %}
                     <option  value="{{pu.cvname}}">{{ pu.name }}</option>
                     {% endfor %}
                 </select>
-                בחר סוג ידיות
+                :בחר סוג ידיות
+               
             </div>
+            <br>
+            <table>
+                <td>בחר סוקל</td>
+                <td>
+                   <select id="chosen_sokel" name="sokelval" style="text-align:right;" onchange="selectsokel();" >
+                   {% for s in sokel %}
+                   <option  value="{{s.cvname}}">{{ s.name }}</option>
+                   {% endfor %}
+                   </select>
+               </td>
+                <td>:גובה סוקל</td>
+                
+               <td>
+               <input name="sokelgovaval" value="100" id="govasokel" style="width:80px ;float:right;">
+               </td>
+           </table>
+           </div>
+           <br>
 
    <input class="btn btn-primary" value="שלח" type="submit"/>
 </form>
@@ -141,25 +241,68 @@
     function load(){
         document.getElementById("wooden_drawers").hidden = true; 
         document.getElementById("metal_drawers").hidden = true; 
+        document.getElementById("forpaint").hidden = true; 
+        document.getElementById("nopaint").hidden = true; 
+        document.getElementById("dforpaint").hidden = true; 
+        document.getElementById("dnopaint").hidden = true; 
+        };
 
-
-    };
-
-function select(){
-    var chosen = document.getElementById("chosen_drawer").value;
-    
-    if(chosen == "wooden"){
-     
-        document.getElementById("wooden_drawers").hidden = false; 
-        document.getElementById("metal_drawers").hidden = true; 
+    function selectdrawer(){
+        var chosen_drawer = document.getElementById("chosen_drawer").value;
+        if(chosen_drawer == "wooden"){
+           document.getElementById("wooden_drawers").hidden = false; 
+            document.getElementById("metal_drawers").hidden = true; 
        };
+       if (chosen_drawer == "metal"){
+        document.getElementById("wooden_drawers").hidden = true; 
+        document.getElementById("metal_drawers").hidden = false; 
+        };
+    };
+    function selectsokel(){
+        var chosensokel = document.getElementById("chosen_sokel").value;
+        alert(chosensokel);
 
-       if (chosen == "metal"){
-       document.getElementById("wooden_drawers").hidden = true; 
-       document.getElementById("metal_drawers").hidden = false; 
+  
+};
+function selectdoor(){
+    var chosen_door = document.getElementById("doorval").value;
+    if(chosen_door == "forpaint"){
+       document.getElementById("forpaint").hidden = false; 
+        document.getElementById("nopaint").hidden = true; 
+   };
+   if (chosen_door == "nopaint"){
+        document.getElementById("forpaint").hidden = true; 
+        document.getElementById("nopaint").hidden = false; 
     };
 };
 
+function selectd(){
+    var chosen_door = document.getElementById("dval").value;
+    if(chosen_door == "dforpaint"){
+       document.getElementById("dforpaint").hidden = false; 
+        document.getElementById("dnopaint").hidden = true; 
+   };
+   if (chosen_door == "dnopaint"){
+        document.getElementById("dforpaint").hidden = true; 
+        document.getElementById("dnopaint").hidden = false; 
+    };
+};
+function selectsokel(){
+    var chosensokel = document.getElementById("chosen_sokel").value;
+    alert(chosensokel);
+
+
+};
+       /* if(chosen_drawer == "wooden"){
+         
+            document.getElementById("wooden_drawers").hidden = false; 
+            document.getElementById("metal_drawers").hidden = true; 
+           };
+    
+           if (chosen == "metal"){
+           document.getElementById("wooden_drawers").hidden = true; 
+           document.getElementById("metal_drawers").hidden = false; 
+        };*/
 
 
 

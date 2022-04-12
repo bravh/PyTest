@@ -39,6 +39,7 @@ class ConMeths(db.Model):
      id = db.Column(db.Integer, primary_key=True, nullable=False)
      name = db.Column(db.String(150), unique=True)
      cvname = db.Column(db.String(150), unique=True)
+     CType = db.Column(db.String(150))
     
      
    
@@ -51,13 +52,13 @@ class Doors(db.Model):
      id = db.Column(db.Integer, primary_key=True, nullable=False)
      name = db.Column(db.String(150), unique=True)
      cvname = db.Column(db.String(150), unique=True)
-     
+     DType = db.Column(db.String(150))
           
-class CabMats(db.Model):
+class Materials(db.Model):
      id = db.Column(db.Integer, primary_key=True, nullable=False)
      name = db.Column(db.String(150), unique=True)
      cvname = db.Column(db.String(150), unique=True)
-    
+     MType = db.Column(db.String(150))
 
 
 class Pulls(db.Model):
@@ -65,15 +66,8 @@ class Pulls(db.Model):
      name = db.Column(db.String(150), unique=True)
      cvname = db.Column(db.String(150), unique=True)
      
-     
-class RoolOuts(db.Model):
-    id = db.Column(db.Integer, primary_key=True, nullable=False)
-    name = db.Column(db.String(150), unique=True)
-    cvname = db.Column(db.String(150), unique=True)
-    drawers = db.Column(db.String(150))
-   
-   
-    
-   
-    
-    
+class Drawers(db.Model):
+     id = db.Column(db.Integer, primary_key=True, nullable=False)
+     name = db.Column(db.String(150), unique=True)
+     cvname = db.Column(db.String(150), unique=True)
+     DWType = db.Column(db.String(150))
