@@ -70,7 +70,7 @@ def createnewdb():
            new_drawer = DrawersDrawers( name=webname, cvname = cvname, dwtype = g, user_id = current_user.id)
            db.session.add(new_drawer)
            db.session.commit()
-           return render_template('home.html', user=current_user)
+           return render_template('admin.html', user=current_user)
         
       
 
