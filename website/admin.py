@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, flash, render_template, request, redirect, url_for
 from .models import ConMeths, Sokels, Doors, Materials, Pulls, Drawers
 from flask_login import  login_required, current_user, logout_user 
 from flask import send_file
@@ -43,18 +43,21 @@ def createnewdb():
             new_material = Materials( name=webname, cvname = cvname, MType = g, user_id = current_user.id)
             db.session.add(new_material)
             db.session.commit()
+            flash("נוסף ערך למערכת")
             return render_template('admin.html', user=current_user)
         
         if g == "CCM" or g == "CDWM":
             new_constract = ConMeths( name=webname, cvname = cvname, CType = g, user_id = current_user.id)
             db.session.add(new_constract)
             db.session.commit()
+            flash("נוסף ערך למערכת")
             return render_template('admin.html', user=current_user)
 
         if g == "XDP" or g == "XDNP":
             new_door = Doors( name=webname, cvname = cvname, DType = g, user_id = current_user.id)
             db.session.add(new_door)
             db.session.commit()
+            flash("נוסף ערך למערכת")
             return render_template('admin.html', user=current_user)
 
         if g == "MDW":
@@ -64,12 +67,14 @@ def createnewdb():
             new_guide = Materials( name=guide , cvname = guide , MType = "G", user_id = current_user.id)
             db.session.add(new_guide)
             db.session.commit()
+            flash("נוסף ערך למערכת")
             return render_template('admin.html', user=current_user)
             
         if g =="WDW":
            new_drawer = Drawers( name=webname, cvname = cvname, dwtype = g, user_id = current_user.id)
            db.session.add(new_drawer)
            db.session.commit()
+           flash("נוסף ערך למערכת")
            return render_template('admin.html', user=current_user)
         
       
