@@ -1,9 +1,8 @@
-import encodings
 from flask import Blueprint, render_template, request, redirect, url_for
 from .models import ConMeths, Sokels, Doors, Materials, Pulls, Drawers
 from flask_login import  login_required, current_user
 from flask import send_file
-from bs4 import BeautifulSoup
+
 
 
 
@@ -14,24 +13,37 @@ checklist = Blueprint('checklist', __name__)
 
 
 def CheckList(): 
-    conm = ConMeths.query.filter_by(CType = "C").all()
-    conmdw = ConMeths.query.filter_by(CType = "DW").all()
-    sokel = Sokels.query.order_by(Sokels.name).all()
-    doorfp = Doors.query.filter_by(DType = "XDP").all()
-    doornp = Doors.query.filter_by(DType = "XDNP").all()
-    cabmats = Materials.query.filter_by(MType = "C").all()
-    drawermat = Materials.query.filter_by(MType = "DW").all()
-    dnpm = Materials.query.filter_by(MType = "DNP").all()
-    dpm = Materials.query.filter_by(MType = "DP").all()
-    rolls = Drawers.query.filter_by(DWType = "DW").all()
-    innerroll = Drawers.query.filter_by(DWType = "IDW").all()
-    pulls = Pulls.query.order_by(Pulls.name).all()
+    conm = ConMeths.query.filter_by(CType = "CCM").all()#contruction method cabinets
+    cabmats = Materials.query.filter_by(MType = "CM").all() #materials for cabinet
+    doorfp = Doors.query.filter_by(DType = "XDP").all() #doors for pain
+    doornp = Doors.query.filter_by(DType = "XDNP").all() #doors not gor paint
+    
+    metaldrawerconst = ConMeths.query.filter_by(CType = "MCDWM").all()
+    dnpm = Materials.query.filter_by(MType = "DNPM").all()#materials for doors not for paot
+    dpm = Materials.query.filter_by(MType = "DP").all()#materials for paint doors
+    rolls = Drawers.query.filter_by(dwtype = "MDW").all()
+    drawermat = Materials.query.filter_by(MType = "DWM").all() #materials for drawers
+
+    pulls = Pulls.query.order_by(Pulls.name).all() #pulls pick
+    sokel = Sokels.query.order_by(Sokels.name).all() #sokel pick
+
+    conmdw = ConMeths.query.filter_by(CType = "CDWM").all() #construction method wooden drawer box
     
     if request.method == 'POST':
-        vconm = request.form.get('conmval')
-        vsokel =  request.form.get('sokelval')
-        vdoors = request.form.get('doorval')
+
+        vconm = request.form.get('conmval') #get contruction method cabinets selection
+
         vcabmats = request.form.get('cabmatval')
+        
+        if request.form.get('rollsval') == 'wooden':
+            vdconm = request.form.get('conmwd') #get contruction method wooden drawer selection
+        elif request.form.get('rollsval') == 'metal':
+            vdconm = request.form.get('conmmd')
+
+       
+        vsokel =  request.form.get('sokelval') #get sokel selected
+        vdoors = request.form.get('doorval') 
+        
         vrolls = request.form.get('rollsval')
         vpulls = request.form.get('pullsval')
         pname = request.form.get('projname')
@@ -51,7 +63,7 @@ def CheckList():
              
              
     
-    return render_template('CheckList.html', user=current_user, doornp=doornp ,dpm=dpm, dnpm=dnpm ,conm= conm ,drawermat = drawermat ,sokel = sokel, doorfp = doorfp, cabmats = cabmats, rolls = rolls, pulls= pulls, conmdw = conmdw)
+    return render_template('CheckList.html', user=current_user, metaldrawerconst = metaldrawerconst ,doornp=doornp ,dpm=dpm, dnpm=dnpm ,conm= conm ,drawermat = drawermat ,sokel = sokel, doorfp = doorfp, cabmats = cabmats, rolls = rolls, pulls= pulls, conmdw = conmdw)
 
 
 @checklist.route('/saveord' ,methods=['GET', 'POST'])  

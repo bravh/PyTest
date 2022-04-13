@@ -1,0 +1,70 @@
+[Link]
+PocketPCPath=""
+PCPath=""
+PCDate=""
+CreateBy="PC_SOLID"
+    
+
+[Header]
+Version=4
+Unit=1
+Name="boris"
+Description="פרוייקט חדש"
+PurchaseOrder="פרוייקט חדש"
+Comment="100:גובה סוקל"
+Customer="פרוייקט חדש"
+Contact="boris"
+Address1="ערוגות"
+Address2=""
+City=""
+State=""
+Zip=""
+Phone="12345678"
+Fax=""
+Mobile=""
+EMail="bravh1@gmail.com"
+ShipToComment=""
+ShipToCustomer=""
+ShipToContact=""
+ShipToAddress1=""
+ShipToAddress2=""
+ShipToCity=""
+ShipToState=""
+ShipToZip=""
+ShipToPhone=""
+ShipToFax=""
+ShipToMobile=""
+ShipToEMail=""
+BaseDoors="","","","","","","Door.ddb"
+WallDoors="","","","","","","Door.ddb"
+DrawerFront="","","","","","","Door.ddb"
+BaseEndPanels="","","","","","","Door.ddb"
+WallEndPanels="","","","","","","Door.ddb"
+TallEndPanels="","","","","","","Door.ddb"
+CabinetConstruction="On Toe - PK2" 
+DrawerBoxConstruction="Cabineo Drawer Box"
+RollOutConstruction="Cabineo Drawer Box IN"
+BaseCabinetMaterials="Dikt 17 - Formayka Grafit 3160"
+WallCabinetMaterials="Dikt 17 - Formayka Grafit 3160"
+BaseExposedCabinetMaterials="Dikt 17 - Formayka Grafit 3160"
+WallExposedCabinetMaterials="Dikt 17 - Formayka Grafit 3160"
+DrawerBoxMaterials=""
+RollOutMaterials=""
+PullMaterials=""
+HingeMaterials="Blum ClipTop 110° H5"
+GuideMaterials="Vision White"
+InteriorFinish="שחור"
+ExteriorFinish="לבן"
+
+[Walls]
+-1250.0,-0.0,0.0,1900.0,2750.0,100.0,1,2,"0",,,,"216","S"
+
+[Catalog]
+Name="Custom Cabinets.cvc"
+
+[Parameters]
+Attribute="1 Provance Frame ON/OFF","Frame_ON_OFF","bool",0
+Attribute="Draws Detailed?","U_Cab_Detailed_Drawers","bool",1
+
+[Cabinets]
+1,"Std Base",600.0,880.0,600.0,"*","N",1,"","216-F",440.0,0.0,0.0,2,0,"1V-O|T","215","S"

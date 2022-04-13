@@ -1,0 +1,102 @@
+{% extends "base.html" %} 
+{% block title %}Home{% endblock %} 
+{% block content %}
+
+<h1 style="margin: 30px 30px 30px 30px">הוספת נתונים</h1>
+<form id ="main" method="POST" action="/admin/createnewdb">
+    <table >
+    <select style="margin: 30px 30px 30px 30px" id="selected" name="selected" class="form-control" onchange="refreshdat();">
+        <option disabled selected value>--שיטות בניה--</option>    
+        <option class = "ConMeths" value = "CCM">שיטת בנית ארגזים  - "C"</option>  
+        <option class = "ConMeths" value = "CDWM">שיטת בניית מגירות - "DW"</option> 
+        <option disabled selected value>--חומרים--</option>    
+        <option class = "Materials" value = "CM">חומר לארגזים - "C"</option>  
+        <option class = "Materials" value = "DWM">חומר למגירות - "DW"</option> 
+        <option class = "Materials" value = "DPM">חומר לדלתות לצבע - "DP"</option>  
+        <option class = "Materials" value = "DNPM">חומר לדלתות ללא צבע - "DNP"</option> 
+        <option disabled selected value>--דגם דלתות--</option>    
+        <option class = "Doors" value = "XDP">דגם לצבע - "XDP"</option>  
+        <option class = "Doors" value = "XDNP">דגם ללא צבע = "XDNP"</option> 
+        <option disabled selected value>--מגירות--</option>    
+        <option class = "Drawers"  value = "WDW"> מגירת עץ - "WDW"</option>  
+        <option class = "Drawers"  value = "MDW">מגירת מתכת - "MDW"</option> 
+        <option disabled selected value>--הוסף מסילות--</option> 
+        <option class = "Guides"  value = "G">  מסילות - "G"</option> 
+        <option disabled selected value>--ADD ANOTHER USER--</option>       
+        <option class = "Users" value="newuser">הנפקת חשבון חדש</option>  
+       
+        
+       
+   
+    </select>
+</table>
+<style>
+    th ,td{
+        border: 1px solid;
+        width: 200px;
+        text-align: center;
+
+
+
+    }
+
+
+</style>
+
+<table >
+    <tr>
+    <th>שם לתצוגה</th>
+    <th>שם בקבינט ויז'ן</th>
+    <th id = "mesila2">סוג מסילה בקבינט ויז'ן</th>
+    <th id = "mesila1">שם שיטת בניה בקבינט ויז'ן</th>
+    <th>Web Inerface ID</th>
+</tr>
+<tr>
+    <td><input name="webname" placeholder=" W.I.c.v שם לתצוגה ב" /></td>
+    <td><input name="cvname" placeholder="שם בקבינט ויז'ן"/></td>
+    <td  id = "mesila"><input name= "mesila" /></td>
+    <td  id = "constr"><input name= "constr"/></td>
+    <td><input id="showc" disabled="true"></td>
+    </tr>
+    
+    
+    
+</table>
+
+    
+<input class="btn-success"  id="submit" type="submit" value="הוסף אובייקט למסד נתונים" />
+
+</form>
+<script>
+    document.getElementById("mesila").hidden = true;
+    document.getElementById("mesila1").hidden = true;
+    document.getElementById("mesila2").hidden = true;
+    document.getElementById("constr").hidden = true;
+   function refreshdat(d = document.getElementById("selected").value){
+        document.getElementById("showc").value = d;
+        if(d == "MDW" ){
+            document.getElementById("mesila").hidden = false;
+            document.getElementById("mesila1").hidden = false;
+            document.getElementById("mesila2").hidden = false;
+            document.getElementById("constr").hidden = false;
+            alert("שימ לב! יש להוסיף שיטת בנייה וסוג מסילות");
+        }else{
+        document.getElementById("mesila").hidden = true;
+        document.getElementById("mesila1").hidden = true;
+        document.getElementById("mesila2").hidden = true;
+        document.getElementById("constr").hidden = true;
+        };
+        if(d == "newuser" ){
+            document.getElementById("main").action="/admin/Newuser";
+            document.getElementById("submit").click();
+        };
+            
+        
+        
+     };
+
+
+</script>
+
+
+{% endblock %}

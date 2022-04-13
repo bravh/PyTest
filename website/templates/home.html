@@ -1,6 +1,8 @@
 {% extends "base.html" %} 
 {% block title %}Home{% endblock %} 
 {% block content %}
+
+
 <h1>
 <pre>
     {{ user.admin }} -- Admin
@@ -10,12 +12,24 @@
     {{ user.address }} -- Address
     {{ user.phone }} --Phone
 </pre>
-<p>
-    <h1>שלום {{user.name}}</h1>
+<div style="float: right">
+    <h1> {{ user.first_name }} ,שלום</h1>
+    <div>
+    {% if user.admin %}
+    
+ 
+            יש לך הרשאות לניהול מסד נתונים
+            <br>
+            <form method="POST" action="/admin">
+            <input class="btn-warning" type="submit" value="עריכת מסד נתונים">
+         </form>
+    {% else %}
+            אין לך הרשאות לניהול מסד נתונים
+    {% endif %}
+</div>
 
 
-
-</p>
+</div>
 
 </h1>
 
