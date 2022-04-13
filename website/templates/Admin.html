@@ -47,15 +47,11 @@
     <tr>
     <th>שם לתצוגה</th>
     <th>שם בקבינט ויז'ן</th>
-    <th id = "mesila2">סוג מסילה בקבינט ויז'ן</th>
-    <th id = "mesila1">שם שיטת בניה בקבינט ויז'ן</th>
     <th>Web Inerface ID</th>
 </tr>
 <tr>
     <td><input name="webname" placeholder=" W.I.c.v שם לתצוגה ב" /></td>
     <td><input name="cvname" placeholder="שם בקבינט ויז'ן"/></td>
-    <td  id = "mesila"><input name= "mesila" /></td>
-    <td  id = "constr"><input name= "constr"/></td>
     <td><input id="showc" disabled="true"></td>
     </tr>
     
@@ -68,24 +64,10 @@
 
 </form>
 <script>
-    document.getElementById("mesila").hidden = true;
-    document.getElementById("mesila1").hidden = true;
-    document.getElementById("mesila2").hidden = true;
-    document.getElementById("constr").hidden = true;
+
    function refreshdat(d = document.getElementById("selected").value){
         document.getElementById("showc").value = d;
-        if(d == "MDW" ){
-            document.getElementById("mesila").hidden = false;
-            document.getElementById("mesila1").hidden = false;
-            document.getElementById("mesila2").hidden = false;
-            document.getElementById("constr").hidden = false;
-            alert("שימ לב! יש להוסיף שיטת בנייה וסוג מסילות");
-        }else{
-        document.getElementById("mesila").hidden = true;
-        document.getElementById("mesila1").hidden = true;
-        document.getElementById("mesila2").hidden = true;
-        document.getElementById("constr").hidden = true;
-        };
+
         if(d == "newuser" ){
             document.getElementById("main").action="/admin/Newuser";
             document.getElementById("submit").click();

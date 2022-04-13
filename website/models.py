@@ -35,7 +35,7 @@ class Cabinets(db.Model):
 
 class ConMeths(db.Model):
      id = db.Column(db.Integer, primary_key=True, nullable=False)
-     name = db.Column(db.String(150), unique=True)
+     name = db.Column(db.String(150), )
      cvname = db.Column(db.String(150), unique=True)
      CType = db.Column(db.String(150))
      user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
@@ -44,20 +44,20 @@ class ConMeths(db.Model):
    
 class Sokels(db.Model):
      id = db.Column(db.Integer, primary_key=True, nullable=False)
-     name = db.Column(db.String(150), unique=True)
+     name = db.Column(db.String(150), )
      cvname = db.Column(db.String(150), unique=True)
      user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
      
 class Doors(db.Model):
      id = db.Column(db.Integer, primary_key=True, nullable=False)
-     name = db.Column(db.String(150), unique=True)
+     name = db.Column(db.String(150), )
      cvname = db.Column(db.String(150), unique=True)
      DType = db.Column(db.String(150))
      user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
           
 class Materials(db.Model):
      id = db.Column(db.Integer, primary_key=True, nullable=False)
-     name = db.Column(db.String(150), unique=True)
+     name = db.Column(db.String(150), )
      cvname = db.Column(db.String(150), unique=True)
      MType = db.Column(db.String(150))
      user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
@@ -65,13 +65,13 @@ class Materials(db.Model):
 
 class Pulls(db.Model):
      id = db.Column(db.Integer, primary_key=True, nullable=False)
-     name = db.Column(db.String(150), unique=True)
+     name = db.Column(db.String(150), )
      cvname = db.Column(db.String(150), unique=True)
      user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
      
 class Drawers(db.Model):
      id = db.Column(db.Integer, primary_key=True, nullable=False)
-     name = db.Column(db.String(150), unique=True)
+     name = db.Column(db.String(150), )
      cvname = db.Column(db.String(150), unique=True)
      dwtype = db.Column(db.String(150))
      user_id = db.Column(db.Integer, db.ForeignKey("user.id"))

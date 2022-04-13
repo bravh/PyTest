@@ -17,10 +17,9 @@ def CheckList():
     cabmats = Materials.query.filter_by(MType = "CM").all() #materials for cabinet
     doorfp = Doors.query.filter_by(DType = "XDP").all() #doors for pain
     doornp = Doors.query.filter_by(DType = "XDNP").all() #doors not gor paint
-    
+    dpm = Materials.query.filter_by(MType = "DPM").all()
     metaldrawerconst = ConMeths.query.filter_by(CType = "MCDWM").all()
     dnpm = Materials.query.filter_by(MType = "DNPM").all()#materials for doors not for paot
-    dpm = Materials.query.filter_by(MType = "DP").all()#materials for paint doors
     rolls = Drawers.query.filter_by(dwtype = "MDW").all()
     drawermat = Materials.query.filter_by(MType = "DWM").all() #materials for drawers
 
@@ -34,6 +33,9 @@ def CheckList():
         vconm = request.form.get('conmval') #get contruction method cabinets selection
 
         vcabmats = request.form.get('cabmatval')
+        vcabmatsopen = request.form.get('cabmatvalopen')
+                 
+
         
         if request.form.get('rollsval') == 'wooden':
             vdconm = request.form.get('conmwd') #get contruction method wooden drawer selection
@@ -43,6 +45,7 @@ def CheckList():
        
         vsokel =  request.form.get('sokelval') #get sokel selected
         vdoors = request.form.get('doorval') 
+        doorsmat = request.form.get('doorsmat') 
         
         vrolls = request.form.get('rollsval')
         vpulls = request.form.get('pullsval')
@@ -56,14 +59,19 @@ def CheckList():
         vcabmats = Materials.query.filter_by(cvname = vcabmats).first()
         vrolls = Drawers.query.filter_by(cvname = vrolls).first()
         vpulls = Pulls.query.filter_by(cvname = vpulls).first()
+        vcabmatsopen = Materials.query.filter_by(cvname = vcabmatsopen).first()
         
-        
-        return render_template('ORDFile.html', user=current_user, gsokel = gsokel,   contact = contact ,phone = phone, pname = pname ,conm= vconm ,sokel = sokel, door = vdoors, cabmats = vcabmats, rolls = vrolls, pulls= vpulls)
+        return render_template('ORDFile.html', user=current_user, doorsmat= doorsmat, gsokel = gsokel,
+                                                contact = contact , vcabmatsopen = vcabmatsopen
+                                                ,phone = phone, pname = pname ,conm= vconm ,sokel = sokel,
+                                                 door = vdoors, cabmats = vcabmats, rolls = vrolls, pulls= vpulls)
       
              
              
     
-    return render_template('CheckList.html', user=current_user, metaldrawerconst = metaldrawerconst ,doornp=doornp ,dpm=dpm, dnpm=dnpm ,conm= conm ,drawermat = drawermat ,sokel = sokel, doorfp = doorfp, cabmats = cabmats, rolls = rolls, pulls= pulls, conmdw = conmdw)
+    return render_template('CheckList.html', user=current_user, metaldrawerconst = metaldrawerconst,
+                                doornp=doornp ,dpm=dpm, dnpm=dnpm ,conm= conm ,drawermat = drawermat ,sokel = sokel,
+                                doorfp = doorfp, cabmats = cabmats, rolls = rolls, pulls= pulls, conmdw = conmdw)
 
 
 @checklist.route('/saveord' ,methods=['GET', 'POST'])  

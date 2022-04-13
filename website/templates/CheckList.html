@@ -63,6 +63,17 @@
              
                 </div>
                 <br>
+                <div>
+                    :בחר סוג חומר לארגזים פתוחים
+                 <select class="form-control"  id="cabmatopen" name="cabmatvalopen" >
+                    <option disabled selected value>יש לבחור חומר לארגזים</option>
+                     {% for cm in cabmats %}
+                     <option  value="{{cm.cvname}}">{{ cm.name }}</option>
+                     {% endfor %}
+                 </select class="form-control">
+             
+                </div>
+                <br>
             <div>
 
                 <div>
@@ -114,7 +125,7 @@
             <br>
             <div>
                 :בחר סוג חזיתות
-                <select class="form-control" id = "doorval" name="doorval" onchange="selectdoor();">
+                <select class="form-control" id = "doorval"  onchange="selectdoor();">
                     <option disabled selected value>יש לבחור סוג חזיתות</option>
                      <option  value="forpaint">חזיתות לצבע</option>
                      <option  value="nopaint">חזיתות ללא צבע</option>
@@ -125,8 +136,12 @@
                     <table>
                         <div id="forpaint" float="left">
                            <br>
+                           <input name="doorval" id="selecteddoor" hidden="true" />
+                           <input name="doorsmat" id="selecteddoormaterial" hidden="true" />
+
+
                            :בחר דגם חזיתות
-                            <select class="form-control">
+                            <select id="cosenpainedkind" class="form-control" onchange="selectdoor();">
                                <option disabled selected value>יש לבחור סוג חזיתות</option>                            
                                 {% for ro in doorfp %}
                                 <option  value="{{ro.cvname}}">{{ ro.name }}</option>
@@ -134,7 +149,7 @@
                             </select class="form-control">
                             <br>
                             :בחר חומר לחזיתות
-                            <select class="form-control">
+                            <select id="cosenpainedmat" class="form-control" onchange="selectdoor();">
                             <option disabled selected value>יש לבחור חומר לחזיתות</option>                            
                                 {% for rco in dpm %}
                                 <option  value="{{rco.cvname}}">{{ rco.name }}</option>
@@ -142,11 +157,11 @@
                             </select class="form-control">
                       
                         </div>
-                       
+                    
                         <div id="nopaint"  float="left">
                            <br>
                            :בחר דגם חזיתות
-                            <select class="form-control" >
+                            <select id="nopaintkind" class="form-control" onchange="selectdoor();">
                                <option disabled selected value>יש לבחור דגם לחזיתות</option>  
                                 {% for rso in doornp %}
                                 <option  value="{{rso.cvname}}">{{ rso.name }}</option>
@@ -154,7 +169,7 @@
                             </select class="form-control">
                             <br>
                             : בחר חומר לחזיתות
-                            <select class="form-control">
+                            <select id="nopaintmat" class="form-control" onchange="selectdoor();">
                                <option disabled selected value>יש לבחור חומר חזיתות</option>
                                {% for cin in dnpm %}
                                <option  value="{{cin.cvname}}">{{ cin.name }}</option>
@@ -253,7 +268,19 @@
            <br>
 
    <input class="btn btn-primary" value="שלח" type="submit"/>
+
+
 </form>
+
+
+
+
+
+
+
+
+
+
 <script>
     function load(){
         document.getElementById("wooden_drawers").hidden = true; 
@@ -286,38 +313,39 @@ function selectdoor(){
     if(chosen_door == "forpaint"){
        document.getElementById("forpaint").hidden = false; 
         document.getElementById("nopaint").hidden = true; 
+        document.getElementById("selecteddoor").value = document.getElementById("cosenpainedkind").value
+        document.getElementById("selecteddoormaterial").value = document.getElementById("cosenpainedmat").value
+        
+     
    };
    if (chosen_door == "nopaint"){
         document.getElementById("forpaint").hidden = true; 
         document.getElementById("nopaint").hidden = false; 
+        document.getElementById("selecteddoor").value = document.getElementById("nopaintkind").value
+        document.getElementById("selecteddoormaterial").value = document.getElementById("nopaintmat").value
     };
 };
 
 function selectd(){
     var chosen_door = document.getElementById("dval").value;
-    if(chosen_door == "dforpaint"){
+
+    if (chosen_door == "dforpaint"){
        document.getElementById("dforpaint").hidden = false; 
         document.getElementById("dnopaint").hidden = true; 
+       
+
+        
    };
    if (chosen_door == "dnopaint"){
         document.getElementById("dforpaint").hidden = true; 
         document.getElementById("dnopaint").hidden = false; 
+       
     };
-};
-function selectsokel(){
-    var chosensokel = document.getElementById("chosen_sokel").value;
-    alert(chosensokel);
-
-
 };
 
 
 </script>
-
-
 </body>
-
-
 {% endblock %}
 
 
