@@ -43,19 +43,19 @@ def createnewdb():
             new_material = Materials( name=webname, cvname = cvname, MType = g, user_id = current_user.id)
             db.session.add(new_material)
             db.session.commit()
-            return render_template('home.html', user=current_user)
+            return render_template('admin.html', user=current_user)
         
         if g == "CCM" or g == "CDWM":
             new_constract = ConMeths( name=webname, cvname = cvname, CType = g, user_id = current_user.id)
             db.session.add(new_constract)
             db.session.commit()
-            return render_template('home.html', user=current_user)
+            return render_template('admin.html', user=current_user)
 
         if g == "XDP" or g == "XDNP":
             new_door = Doors( name=webname, cvname = cvname, DType = g, user_id = current_user.id)
             db.session.add(new_door)
             db.session.commit()
-            return render_template('home.html', user=current_user)
+            return render_template('admin.html', user=current_user)
 
         if g == "MDW":
             new_ddrawed = Drawers( name=webname, cvname = cvname, dwtype = g, user_id = current_user.id)
@@ -64,10 +64,10 @@ def createnewdb():
             new_guide = Materials( name=guide , cvname = guide , MType = "G", user_id = current_user.id)
             db.session.add(new_guide)
             db.session.commit()
-            return render_template('home.html', user=current_user)
+            return render_template('admin.html', user=current_user)
             
         if g =="WDW":
-           new_drawer = DrawersDrawers( name=webname, cvname = cvname, dwtype = g, user_id = current_user.id)
+           new_drawer = Drawers( name=webname, cvname = cvname, dwtype = g, user_id = current_user.id)
            db.session.add(new_drawer)
            db.session.commit()
            return render_template('admin.html', user=current_user)
