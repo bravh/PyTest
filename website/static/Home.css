@@ -1,0 +1,7 @@
+
+.welcome{   width: auto;
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    color: rgb(103, 46, 172);
+  }

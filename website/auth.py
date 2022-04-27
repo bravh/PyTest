@@ -31,11 +31,10 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('auth.login'))
+    return redirect(url_for('views.home'))
 
 
 @auth.route('/sign-up', methods=['GET', 'POST'])
-   
 def sign_up():
     if request.method == 'POST':
         email = request.form.get('email')
@@ -69,6 +68,10 @@ def sign_up():
 
     return render_template("sign_up.html", user=current_user)
 
+
+@auth.route('/cube')
+def cube():
+    return render_template("cube.html" , user=current_user)
 
 
 

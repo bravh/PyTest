@@ -1,0 +1,87 @@
+html {
+
+    overflow: hidden;
+}
+
+#backsvg {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
+
+
+/*body{
+    background-image: url('./Background.svg');
+    background-size: cover;
+}*/
+.container {
+    width: 98vw;
+    height: 98vh;
+    margin: auto;
+    padding: 0;
+    overflow: hidden;
+    /*border: 1px solid blue;
+   */
+}
+
+form {
+    display: grid;
+    align-content: right;
+}
+
+#Rectangle1 {
+    animation: movearond 120s infinite;
+    
+}
+
+#Ellipse1 {
+    animation: movearond2 230s infinite;
+   
+}
+#Ellipse2 {
+    animation: movearond3 230s infinite;
+   
+}
+
+@keyframes movearond {
+    33% {
+        transform: translate(-800px, -800px);
+    }
+
+        66% {
+            transform: translate(1200px, -100px);
+        }
+        100%{
+            transform: translate(0,0);
+         
+}
+    }
+
+    @keyframes movearond2 {
+        33% {
+            transform: translate(-1800px, 750px);
+        }
+
+        66% {
+            transform: translate(800px, -350px);
+        }
+
+        100% {
+            transform: translate(0 , 0);
+        }
+
+    }
+    @keyframes movearond3 {
+        33% {
+            transform: translate(1200px, 100px);
+        }
+
+        66% {
+            transform: translate(-800px, -350px);
+        }
+
+        100% {
+            transform: translate(0 , 0);
+        }
+
+    }

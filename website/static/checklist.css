@@ -1,48 +1,44 @@
-#rightside {
-    width: 49%;
-    float: right;
-  
-  }
 
-#leftside {
-   
-    width: 49%;
-    float: left;
-    
-  }
-  
-
-  table, th , td, p , tr, input , form{
-    margin: auto;
-    float: right;
-    text-align: right;
-  }
-  h1{
-      
-      margin: auto;
-      text-align:right;
-  }
-  #mainTable {
+.newproject{
+  /*border: 1px solid black;*/
+  width: 100%;
+  height: 95%;
+}
+.buttons{
+ /* border: 1px solid violet;*/
+  display: flex;
   align-items: center;
-  float:right;
-    width: 100%;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  body
-  {
-    background-image: url('/static/back.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+  justify-content: center;
+  height: 5%;
+ 
+}
+.probutton{
+  background-color:rgb(158, 153, 230);
+  border:none;
+  border-radius: 5px;;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  font-size: 24px;
+  margin: 0 10px 0 10px;
+  width: 100px;
+  height: 35px;
+ 
+}
 
+.probutton:hover{
+  animation: buttonshouver 250ms  forwards ;
+  -webkit-animation: buttonshouver 250ms  forwards ;
+}
 
-  }
-  select{
-    width: 220px;
-    text-align: right;
-    
-  }
+@keyframes buttonshouver{
+      100%{ background-color:rgb(118, 111, 229);
+      }
 
+}
+.probutton:active{
 
+  color: aliceblue;
+  
+}

@@ -20,12 +20,10 @@ def CheckList():
     dpm = Materials.query.filter_by(MType = "DPM").all()
     metaldrawerconst = ConMeths.query.filter_by(CType = "MCDWM").all()
     dnpm = Materials.query.filter_by(MType = "DNPM").all()#materials for doors not for paot
-    rolls = Drawers.query.filter_by(dwtype = "MDW").all()
+    rolls = Drawers.query.filter_by(dwtype = "MDW").all() #MetalDrawerType
     drawermat = Materials.query.filter_by(MType = "DWM").all() #materials for drawers
-
     pulls = Pulls.query.order_by(Pulls.name).all() #pulls pick
     sokel = Sokels.query.order_by(Sokels.name).all() #sokel pick
-
     conmdw = ConMeths.query.filter_by(CType = "CDWM").all() #construction method wooden drawer box
     
     if request.method == 'POST':

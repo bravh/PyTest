@@ -1,0 +1,116 @@
+.welcome{
+  font-size: 60;
+}
+.maindiv{
+ height: 90%;
+ margin:auto;
+  display: flex;
+
+  
+}
+
+.body {
+  margin: 50  50  50  50;
+  background-color: rgb(135, 191, 216);
+  text-align: center;
+  border: 1px solid;
+  display: -ms-inline-grid;
+  width: max-content;
+}
+
+.div {
+  
+  display: inline;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  width: auto;
+}
+
+#Megira1,
+#Megira2,
+#Megira3 {
+  fill-opacity: 0;
+}
+
+#Megira1:hover,
+#Megira2:hover,
+#Megira3:hover,
+#Argaz:hover {
+    stroke-width: 6px;
+}
+
+.button {
+  fill: black;
+  fill-opacity: 0;
+  stroke-width: 6px;
+  
+}
+
+.notback{
+  
+  width: 30%;
+}
+
+.text {
+  stroke-opacity: 0;
+}
+
+.notback:hover .text {
+  animation: textanima 100s linear infinite;
+  -webkit-animation: textanima 100s linear infinite;
+}
+
+.notback:hover .button {
+  animation: firstAnimation 1s linear infinite;
+  -webkit-animation: firstAnimation 1s linear infinite;
+}
+
+@keyframes firstAnimation {
+  from {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dasharray: 100;
+    stroke-dashoffset: -200;
+  }
+}
+
+@keyframes textanima {
+  from {
+    stroke-opacity: 0;
+  }
+
+  to {
+    stroke-opacity: 100;
+  }
+}
+
+.notback:active .button {
+  stroke: white;
+  animation: slowfill 1s infinite alternate;
+  -webkit-animation: slowfill 1s infinite alternate;
+}
+
+@keyframes slowfill {
+  from {
+    fill-opacity: 0;
+  }
+
+  to {
+    fill-opacity: 100;
+  }
+}
+
+.notback:active .text {
+  stroke: white;
+}
+.notback{
+  position:relative;
+  
+  z-index: 1;
+}

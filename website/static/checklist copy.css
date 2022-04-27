@@ -1,0 +1,26 @@
+.window{
+  position: absolute;
+  right: 10px;
+  
+  height: 95vh;
+  width: 95vw;
+  display: flex;
+}
+.first{}
+.second{opacity: 0;}
+.third{opacity: 0;}
+.four{opacity: 0;}
+.five{opacity: 0;}
+.six{opacity: 0;}
+.seven{opacity: 0;}
+.eight{opacity: 0;}
+
+#nextpage{
+  position: relative;
+  top:10px;
+  left: 10px;
+  height: 25px;
+}
+table{
+  height: 25%;
+}
