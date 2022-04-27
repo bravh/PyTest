@@ -1,25 +1,39 @@
 .container {
-    text-align: left;;
+    text-align: left;
     margin-top: 150px;
     height: auto;
-    width: fit-content;
+    width: 450px;
    
 }
-.buttons{display:flex;
-justify-content: center;
+
+
+.form-control{
+  position: relative; 
+  right: 20px;
+  float:right;
+ 
+}
+span{
+  position: relative;
+  left: 20px;
+  float:left;
+}
+.buttons{
+  display:flex;
+justify-content:center;
+align-items: flex-end;
 margin: 10px;
 }
 
+
 h3{
+  font-size: 26px;
     text-align: center;
 }
-input{
-    margin: 10px;
-    float: right;
 
-}
 
 .probutton{
+
     background-color:rgb(158, 153, 230);
     border:none;
     border-radius: 5px;;

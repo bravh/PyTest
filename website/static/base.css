@@ -25,10 +25,15 @@ html {
    */
 }
 
-form {
+form{
     display: grid;
-    align-content: right;
-}
+    position: relative;
+    height: 500px;
+    border: 2px solid rgba(255,255,255,0.45);;
+    background-color: rgba(255,255,255,0.25);
+    border-radius: 5px;
+  
+  }
 
 #Rectangle1 {
     animation: movearond 120s infinite;
