@@ -18,6 +18,9 @@ html {
     
 }
 @media (prefers-color-scheme: dark) {
+    html{
+        filter:invert(none);
+    }
     #backsvg {
     filter:brightness(1) invert(0%) hue-rotate(-80deg);
     }
