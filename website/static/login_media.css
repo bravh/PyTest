@@ -54,7 +54,8 @@ h3{
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
-    text-align: center;  
+    text-align: center; 
+    direction: ltr; 
     height: 65vh;
     width: 80%;
   }
