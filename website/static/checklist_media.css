@@ -8,7 +8,7 @@
   margin: auto;
 }
 .buttons{
-  top: 85px;
+  top: 35px;
   width: -webkit-fill-available;
   /* border: 1px solid violet; */
   display: flex;
@@ -21,10 +21,6 @@
   background-color:rgb(158, 153, 230);
   border:none;
   border-radius: 5px;;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
   font-size: 18px;
   margin: 0 10px 0 10px;
   width: 65px;
