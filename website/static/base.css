@@ -1,16 +1,26 @@
+
+
+
 html {
 
     overflow: hidden;
 }
 
 #backsvg {
-    background-color: white;
+    
     height: 100%;
     width: 100%;
     position: absolute;
     top: 0;
     z-index: -1;
     filter: hue-rotate(-80deg);
+    
+    
+}
+@media (prefers-color-scheme: dark) {
+    #backsvg {
+    filter:brightness(1) invert(0%) hue-rotate(-80deg);
+    }
 }
 
 
