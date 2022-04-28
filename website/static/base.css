@@ -19,6 +19,7 @@ html {
 }
 @media (prefers-color-scheme: dark) {
     html{
+        background-color: white;
         filter:invert(none);
     }
     #backsvg {
