@@ -1,8 +1,14 @@
 {% extends "base.html" %} {% block title %}CheckList{% endblock %} {% block
 content %}
 <link
+  media="screen and (min-width: 900px)"
   rel="stylesheet"
   href="{{ url_for('static', filename='checklist.css') }}"
+/>
+<link
+  media="screen and (max-width: 900px)"
+  rel="stylesheet"
+  href="{{ url_for('static', filename='checklist_media.css') }}"
 />
 
 <div class="newproject _1"></div>
@@ -10,5 +16,5 @@ content %}
   <button class="probutton btn-prev">הקודם</button>
   <button class="probutton btn-next">הבא</button>
 </div>
-
+<script src="{{ url_for('static', filename='checklist.js') }}"></script>
 {% endblock %}

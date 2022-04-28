@@ -4,27 +4,19 @@ body {
 
 .navbar_main {
   position: absolute;
-  top:0px;
   z-index: 4;
-  height: 60px;
+  height: 30px;
   display: flex;
   justify-content: right;
   align-items: center;
-  background-color: rgb(158, 153, 230,0);
-  animation: dropmenudef 200ms forwards linear;
+  background-color: rgb(158, 153, 230,0.5);
+  top:0px;
   width:-webkit-fill-available;
 }
 
-.navbar_main:hover {
-  animation: dropmenu 200ms forwards linear;
-  
-}
+
 .logo {
-  height: 60px;
-  animation: dropmenudef 200ms forwards linear;
-}
-.navbar_main:hover  .logo {
-  animation: dropmenu 200ms forwards linear ;
+  height: 30px;
   
 }
 
@@ -35,22 +27,18 @@ a {
 .nav-item {
   z-index: 3;
   
-  pointer-events: none;
+  
   text-align: center;
   justify-content: center;
   width: 150px;
   border-radius: 5px;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 18px;
   font-family: 'David';
   color: rgb(0, 0, 0);
 
 }
-.navbar_main:hover  .nav-item {
- 
-  pointer-events: all;
 
-}
 
 .nav-item:hover {
  

@@ -1,9 +1,9 @@
 
-.welcome{   
-  margin:70px;
-    width: auto;
+.welcome{ 
+  margin-top: 30px; 
+   width: auto;
     display: flex;
     justify-content: center;
-    font-size: 40px;
+    font-size: 18px;
     color: rgb(103, 46, 172);
   }

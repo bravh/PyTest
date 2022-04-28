@@ -5,7 +5,8 @@
    
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='Nav-bar.css') }}">
+    <link rel="stylesheet" media="screen and (max-width: 900px)" href="{{ url_for('static', filename='Nav-bar_media.css') }}">
+    <link rel="stylesheet" media="screen and (min-width: 900px)" href="{{ url_for('static', filename='Nav-bar.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
     <title>{% block title %}Home{% endblock %}</title>
   </head>
