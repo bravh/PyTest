@@ -1,0 +1,61 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+     
+     
+}
+
+
+
+
+.buttons{
+  display:flex;
+justify-content:center;
+align-items: flex-end;
+margin: 10px;
+}
+
+
+h3{
+  font-size: 26px;
+    text-align: center;
+    height: 30px;
+}
+
+
+.probutton{
+
+    background-color:rgb(158, 153, 230);
+    border:none;
+    border-radius: 5px;;
+    font-size: 18px;
+    width: 70px;
+    height: 22px;
+   
+  }
+  
+  .probutton:hover{
+    animation: buttonshouver 250ms  forwards ;
+    -webkit-animation: buttonshouver 250ms  forwards ;
+  }
+  
+  @keyframes buttonshouver{
+        100%{ background-color:rgb(118, 111, 229);
+        }
+  
+  }
+  .probutton:active{
+  
+    color: aliceblue;
+    
+  }
+  .login_form{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    text-align: center;  
+    height: 65vh;
+    width: 80%;
+  }
+  
