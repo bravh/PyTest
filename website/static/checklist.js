@@ -2,13 +2,17 @@
 let page = 1;
 const cabinet = document.querySelector('.cabinet');
 const special = document.querySelector('.special');
+const header = document.getElementById("header");
 buttons = document.querySelector('.buttons');
 nextbutton = document.querySelector('.btn-next');
+
 function next(){
+    console.log(header);
     const current = document.querySelector('._'+ page);
     const next = document.querySelector('._'+ (page + 1));
     if(next && page <= 10){
         if(special.classList.contains("checked")){
+            header.innerHTML = "הזמנות מיוחדות";
     /*console.log(current);*/
     current.classList.remove("on");
     current.classList.add("off");
@@ -17,12 +21,12 @@ function next(){
     page = page + 1;
     };
    /* nextbutton.style= "display: none";*/
-   console.log(page);
+   
     };
 
     if(next && page <= 10 || next && page >= 11){
         if(cabinet.classList.contains("checked")){
-           
+            header.innerHTML = "הזמנות ארגזים";
     /*console.log(current);*/
     current.classList.remove("on");
     current.classList.add("off");
@@ -53,11 +57,13 @@ function prev(){
         current.classList.remove("on");
         current.classList.add("off");
         page = 1;
+        
         const nextfar = document.querySelector('._'+ (page));
         nextfar.classList.remove('off');
         nextfar.classList.add('on');
         
         };
+        if(page == 1)header.innerHTML = "Choose Your DESTINY!!!";
     nextbutton.style= "display: all";
     console.log(page);
 
