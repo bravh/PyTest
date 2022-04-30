@@ -1,9 +1,14 @@
 
+
+:root{
+--first: rgb(158, 153, 230;);
+--second:rgb(103, 46, 172);
+}
 header{
   direction: ltr;
   font-size: 40px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  color: rgb(103, 46, 172);
+  color: var(--second);
   position: absolute;
   top: 15px;
 }
@@ -16,6 +21,7 @@ header{
   background-image: url('./checklist.svg');
  }
 .typeselector{
+  
   background-repeat: no-repeat;
   background-position: center;
   background-size:  calc(100% - 100px)  calc(100% - 80px);
@@ -26,8 +32,10 @@ header{
   height: 50%;
   width: 30%;
   border-radius: 10px;
-  border: none;
-  background-color:rgb(158, 153, 230);
+  border: 0.5px solid var(--second);
+  background-color:rgba(158, 153, 230,0.5);
+  
+  
 }
 .typeselector:hover{
   
@@ -45,7 +53,7 @@ header{
   width: calc(100% - 30px);
   height: calc(100% - 130px);
   position: absolute;
-  border: 1px solid black;
+  border: none;
   top: 70px;
   margin: auto;
   display: flex;
@@ -100,7 +108,7 @@ header{
 }
 
 @keyframes buttonshouver{
-      100%{ background-color:#766fe5;
+      100%{ background-color:var(--second);
       }
 
 }
