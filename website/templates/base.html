@@ -15,7 +15,8 @@
         <a class="logo" href="/"><img class="logo" src="static/logo.png"  /></a>
         {% if user.is_authenticated %}
         <a class="nav-item nav-link" id="Cube" href="/cube">גלריה</a>
-        <a class="nav-item nav-link" id="load" href="/CheckList">אזור אישי</a>
+        <a class="nav-item nav-link" id="load" href="/CheckList">הזמנה חדשה</a>
+        <a class="nav-item nav-link" id="load" href="/person">איזור אישי</a>
         <a class="nav-item nav-link" id="logout" href="/logout">יציאה</a>
         {% else %}
         <a class="nav-item nav-link" id="login" href="/login">כניסה</a>
@@ -27,16 +28,10 @@
     'error' %}
     <div class="alert-error" role="alert">
       {{ message }}
-      <button type="button" class="close" data-dismiss="alert">
-        <span aria-hidden="true">&times;</span>
-      </button>
     </div>
     {% else %}
     <div class="alert-success" role="alert">
       {{ message }}
-      <button type="button" class="close" data-dismiss="alert">
-        <span aria-hidden="true">&times;</span>
-      </button>
     </div>
     {% endif %} {% endfor %} {% endif %} {% endwith %}
     <svg id="backsvg" preserveAspectRatio="none" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">

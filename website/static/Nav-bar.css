@@ -11,7 +11,7 @@ body {
   justify-content: right;
   align-items: center;
   background-color: rgb(158, 153, 230,0);
-  animation: dropmenudef 200ms forwards linear;
+  opacity: 0;
   width:-webkit-fill-available;
 }
 
@@ -21,7 +21,7 @@ body {
 }
 .logo {
   height: 60px;
-  animation: dropmenudef 200ms forwards linear;
+  opacity: 0;
 }
 .navbar_main:hover  .logo {
   animation: dropmenu 200ms forwards linear ;
@@ -80,8 +80,7 @@ a {
   @keyframes dropmenudef {
     100% {
       
-      opacity: 0;
-      background-color: rgba(158, 153, 230, 0);
+     
      
     }
   

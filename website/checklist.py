@@ -7,6 +7,7 @@ from flask import send_file
 
 
 checklist = Blueprint('checklist', __name__)
+from . import db
 
 @checklist.route('/CheckList' ,methods=['GET', 'POST'])
 @login_required
@@ -69,8 +70,11 @@ def CheckList():
     
     return render_template('CheckList.html', user=current_user, metaldrawerconst = metaldrawerconst,
                                 doornp=doornp ,dpm=dpm, dnpm=dnpm ,conm= conm ,drawermat = drawermat ,sokel = sokel,
-                                doorfp = doorfp, cabmats = cabmats, rolls = rolls, pulls= pulls, conmdw = conmdw)
-
+                               doorfp = doorfp, cabmats = cabmats, rolls = rolls, pulls= pulls, conmdw = conmdw)
+                               
+@checklist.route('/person' ,methods=['GET', 'POST'])  
+def person(): 
+   return render_template('person.html', user=current_user)
 
 @checklist.route('/saveord' ,methods=['GET', 'POST'])  
 @login_required

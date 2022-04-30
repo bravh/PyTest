@@ -1,0 +1,14 @@
+{% extends "base.html" %} {% block title %}Personal{% endblock %} {% block
+content %}
+<link media="screen and (min-width: 900px)" rel="stylesheet" href="{{ url_for('static', filename='checklist.css') }}" />
+<link media="screen and (max-width: 900px)" rel="stylesheet"
+  href="{{ url_for('static', filename='checklist_media.css') }}" />
+
+<div class="newproject _1 on">
+ 
+ Personal Information
+</div>
+
+
+<script src="{{ url_for('static', filename='checklist.js') }}"></script>
+{% endblock %}

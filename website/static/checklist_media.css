@@ -1,22 +1,77 @@
 
+
+header{
+  direction: ltr;
+  font-size: 18px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: rgb(103, 46, 172);
+  position: absolute;
+  top: 15px;
+}
+
+.cabinet{
+  background-image: url('./3dwcabinet.svg');
+ }
+ 
+.special{
+  background-image: url('./checklist.svg');
+ }
+.typeselector{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:  calc(100% - 100px)  calc(100% - 50px);
+  
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  height: 20%;
+  width: 40%;
+  border-radius: 10px;
+  border: none;
+  background-color:rgb(158, 153, 230);
+}
+
+.typeselector:hover{
+  
+  animation: buttonshouver 250ms  forwards ;
+
+}
+.typeselector:active {
+  animation: none;
+  background-color: #89901a;
+  filter: invert();
+}
+
 .newproject{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   width: calc(100% - 30px);
-  height: calc(100% - 140px);
-  position: relative;
+  height: calc(100% - 110px);
+  position: absolute;
   border: 1px solid black;
   top: 40px;
   margin: auto;
 }
 .buttons{
-  top: 50px;
+  bottom: 10px;
   width: -webkit-fill-available;
   /* border: 1px solid violet; */
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
-  position: relative;
+  position: absolute;
   height: 40px;
 }
+.on{
+  display: all;
+
+}
+.off{
+  
+    display: none;
+  
+  }
 .probutton{
   background-color:rgb(158, 153, 230);
   border:none;
@@ -42,4 +97,9 @@
 
   color: aliceblue;
   
+}
+  
+
+.checked{
+  background-color: green;
 }

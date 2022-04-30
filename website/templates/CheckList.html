@@ -1,20 +1,27 @@
 {% extends "base.html" %} {% block title %}CheckList{% endblock %} {% block
 content %}
-<link
-  media="screen and (min-width: 900px)"
-  rel="stylesheet"
-  href="{{ url_for('static', filename='checklist.css') }}"
-/>
-<link
-  media="screen and (max-width: 900px)"
-  rel="stylesheet"
-  href="{{ url_for('static', filename='checklist_media.css') }}"
-/>
+<link media="screen and (min-width: 900px)" rel="stylesheet" href="{{ url_for('static', filename='checklist.css') }}" />
+<link media="screen and (max-width: 900px)" rel="stylesheet"
+  href="{{ url_for('static', filename='checklist_media.css') }}" />
 
-<div class="newproject _1"></div>
+<div class="newproject _1 on">
+  <header>Choose Your DESTINY!!!</header>  
+  <button class=" cabinet  typeselector" >ארגזת באתר</button>
+  <button class=" special  typeselector" >הזמנות מיוחדות</button>
+</div>
+<div class="newproject _2 off">2</div>
+<div class="newproject _3 off">3</div>
+<div class="newproject _4 off">4</div>
+<div class="newproject _5 off">5</div>
+<div class="newproject _6 off">6</div>
+<div class="newproject _7 off">7</div>
+<div class="newproject _8 off">8</div>
+<div class="newproject _9 off">9</div>
+<div class="newproject _10 off">10</div>
+<div class="newproject _11 off">11</div>
 <div class="buttons">
-  <button class="probutton btn-prev">הקודם</button>
-  <button class="probutton btn-next">הבא</button>
+  <button class="probutton btn-prev" onclick="prev()">הקודם</button>
+  <button class="probutton btn-next" onclick="next()">הבא</button>
 </div>
 <script src="{{ url_for('static', filename='checklist.js') }}"></script>
 {% endblock %}

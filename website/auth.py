@@ -16,13 +16,13 @@ def login():
         user = User.query.filter_by(email=email).first()
         if user:
             if check_password_hash(user.password, password):
-                flash('Logged in successfully!', category='success')
+                flash('ברוכים הבאים', category='success')
                 login_user(user, remember=False)
                 return redirect(url_for('views.home'))
             else:
-                flash('Incorrect password, try again.', category='error')
+                flash('משהו השתבש. נסה שוב או צור קשר עם מנהל', category='error')
         else:
-            flash('Email does not exist.', category='error')
+            flash('אינך רשום . צור קשר עם מנהל', category='error')
 
     return render_template("login.html", user=current_user)
 
