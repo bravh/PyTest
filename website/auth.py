@@ -69,14 +69,6 @@ def sign_up():
     return render_template("sign_up.html", user=current_user)
 
 
-@auth.route('/cube')
-def cube():
-    return render_template("cube.html" , user=current_user)
-
-
-
-
-
     
 
     

@@ -11,8 +11,6 @@ from . import db
 
 @checklist.route('/CheckList' ,methods=['GET', 'POST'])
 @login_required
-
-
 def CheckList(): 
     conm = ConMeths.query.filter_by(CType = "CCM").all()#contruction method cabinets
     cabmats = Materials.query.filter_by(MType = "CM").all() #materials for cabinet
